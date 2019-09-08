@@ -1,0 +1,19 @@
+section#dragon-list {
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 0 30px;
+    margin-bottom: 25px;
+}
+
+section#dragon-list #no-dragon {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+section#dragon-list #no-dragon p {
+    margin-bottom: 10px;
+    font-size: 18px;
+}

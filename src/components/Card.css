@@ -1,0 +1,57 @@
+
+article {
+    background: #fff;
+    /*
+    -webkit-box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.15);
+    box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.15);
+    */ 
+    border: 1px solid #ddd;
+    margin-top: 30px;
+    border-radius: 8px;
+}
+
+article header {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+article header .dragon-info {
+    display: flex;
+    flex-direction: column;
+}
+
+article header .dragon-info span {
+    font-size: 24px;
+}
+
+article header .dragon-info span.type {
+    font-size: 15px;
+    color: #666;
+    margin-top: 10px;
+}
+
+article footer {
+    padding: 10px;
+}
+
+article footer .actions button {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.avatar {
+    height: 55px;
+    width: 55px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+
+    font-size: 25px;
+    color: #fff;
+    line-height: 55px;
+    text-align: center;
+}
