@@ -1,5 +1,5 @@
-import { ADD_USER } from '../constants/action-types'
+import { LOG_USER } from '../constants/action-types'
 
-export function addUser(payload) {
-    return { type: ADD_USER, payload }
+export function logUser(payload) {
+    return { type: LOG_USER, payload }
 };

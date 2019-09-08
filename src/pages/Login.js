@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import Loader from '../components/Loader'
-import { addUser } from '../redux/actions/index'
-import { store } from '../redux/store/index'
 import './Login.css'
 
-export default class Login extends Component {
+import * as Actions from '../redux/actions/index'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+
+class Login extends Component {
 
     state = {
         username: '',
@@ -12,20 +14,14 @@ export default class Login extends Component {
         loader: false
     }
 
-    componentDidMount() {
-        console.log(store.getState())
-    }
-
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    login = async e => {
+    login = e => {
         e.preventDefault()
         if (this.isUserAuth()) {
-            store.dispatch(addUser(true))
-            console.log(store.getState())
-            //this.props.history.push('/')
+            this.props.logUser(true)
         } else {
             alert('Incorrect username or password.')
         }
@@ -44,8 +40,10 @@ export default class Login extends Component {
         if (this.state.loader) {
             return <Loader/>
         } else {
-            if (store.getState().isLogged) {
-                this.props.history.push('/')
+            if (this.props.isLogged) {
+                return (
+                    <Loader />
+                )
             } else {
                 return (
                     <form id="login" onSubmit={this.login}>
@@ -58,3 +56,12 @@ export default class Login extends Component {
         }
     }
 }
+
+const mapStateToProps = state => ({
+    isLogged: state.isLogged
+})
+
+const mapDispatchToProps = dispatch => 
+    bindActionCreators(Actions, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

@@ -1,4 +1,4 @@
-import { ADD_USER } from '../constants/action-types'
+import { LOG_USER } from '../constants/action-types'
 
 const initialState = {
     isLogged: false
@@ -6,11 +6,16 @@ const initialState = {
 
 function rootReducer(state = initialState, action) {
     
-    if (action.type === ADD_USER) {
-        state.isLogged = action.payload
+    switch(action.type){
+        case LOG_USER:
+            return {
+                ...state,
+                isLogged: action.payload,
+            };
+        default:
+            return state;
     }
-    return state;
-
+    
 };
 
 export default rootReducer;
