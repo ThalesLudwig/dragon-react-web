@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Loader from '../components/Loader'
 import './Login.css'
-import { Redirect } from 'react-router-dom'
 import * as Actions from '../redux/actions/index'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -22,6 +21,7 @@ class Login extends Component {
         e.preventDefault()
         if (this.isUserAuth()) {
             this.props.logUser(true)
+            window.location.href = '/'
         } else {
             alert('Incorrect username or password.')
         }
@@ -41,7 +41,8 @@ class Login extends Component {
             return <Loader/>
         } else {
             if (this.props.isLogged) {
-                return <Redirect to="/" />
+                window.location.href = '/'
+                return null
             } else {
                 return (
                     <form id="login" onSubmit={this.login}>
