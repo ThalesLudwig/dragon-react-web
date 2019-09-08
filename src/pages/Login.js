@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Loader from '../components/Loader'
 import './Login.css'
-
+import { Redirect } from 'react-router-dom'
 import * as Actions from '../redux/actions/index'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -41,9 +41,7 @@ class Login extends Component {
             return <Loader/>
         } else {
             if (this.props.isLogged) {
-                return (
-                    <Loader />
-                )
+                return <Redirect to="/" />
             } else {
                 return (
                     <form id="login" onSubmit={this.login}>
