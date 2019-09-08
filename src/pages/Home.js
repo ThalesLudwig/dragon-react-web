@@ -3,7 +3,6 @@ import api from '../services/api'
 import Loader from '../components/Loader'
 import Card from '../components/Card'
 import './Home.css'
-
 export default class Home extends Component {
 
     state = {
