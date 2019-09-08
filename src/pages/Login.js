@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Loader from '../components/Loader'
 import { addUser } from '../redux/actions/index'
-import store from '../redux/store/index'
+import { store } from '../redux/store/index'
 import './Login.css'
 
 export default class Login extends Component {
@@ -12,6 +12,10 @@ export default class Login extends Component {
         loader: false
     }
 
+    componentDidMount() {
+        console.log(store.getState())
+    }
+
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })
     }
@@ -20,7 +24,8 @@ export default class Login extends Component {
         e.preventDefault()
         if (this.isUserAuth()) {
             store.dispatch(addUser(true))
-            this.props.history.push('/')
+            console.log(store.getState())
+            //this.props.history.push('/')
         } else {
             alert('Incorrect username or password.')
         }

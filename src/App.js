@@ -5,11 +5,13 @@ import Header from './components/Header'
 import Routes from './routes'
 import Login from './pages/Login'
 
+import { store } from './redux/store/index'
+
 function App() {
 
-	const isUserLoggedin = false
+	const isUserLoggedin = store.getState().isLogged
 
-	if (isUserLoggedin) {
+	if (!isUserLoggedin) {
 		return (
 			<Login />
 		)
