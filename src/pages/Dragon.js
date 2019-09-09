@@ -39,20 +39,14 @@ export default class Dragon extends Component {
     update = async e => {
         e.preventDefault()
         this.setState({ loader: true })
-        const data = new FormData()
-        data.append('name', this.state.name)
-        data.append('type', this.state.type)
-        await api.put(`dragon/${this.state.id}`, data)
+        await api.put(`dragon/${this.state.id}`, { name: this.state.name, type: this.state.type })
         this.props.history.push('/')
     }
 
     create = async e => {
         e.preventDefault()
         this.setState({ loader: true })
-        const data = new FormData()
-        data.append('name', this.state.name)
-        data.append('type', this.state.type)
-        await api.post('dragon', data)
+        await api.post('dragon', { name: this.state.name, type: this.state.type })
         this.props.history.push('/')
     }
 
