@@ -11,7 +11,9 @@ export default class Dragon extends Component {
         name: '',
         type: '',
         createdAt: '',
-        loader: false
+        loader: false,
+        isNameEmpty: true,
+        isTypeEmpty: true
     }
 
     async componentDidMount() {
@@ -19,6 +21,8 @@ export default class Dragon extends Component {
             this.setState({ loader: true })
             await this.setState({ id: this.props.match.params.id })
             await this.populate()
+            this.setState({ isNameEmpty: false })
+            this.setState({ isTypeEmpty: false })
             this.setState({ loader: false })
         }
     }
@@ -50,8 +54,21 @@ export default class Dragon extends Component {
         this.props.history.push('/')
     }
 
+    handleKeyUp = e => {
+        this.state.name.length === 0 ? this.setState({ isNameEmpty: true }) : this.setState({ isNameEmpty: false })
+        this.state.type.length === 0 ? this.setState({ isTypeEmpty: true }) : this.setState({ isTypeEmpty: false })
+    }
+
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })
+    }
+
+    hasFormErrors() {
+        if (this.state.isNameEmpty === true || this.state.isTypeEmpty === true) {
+            return true
+        } else {
+            return false
+        }
     }
 
     render() {
@@ -62,23 +79,21 @@ export default class Dragon extends Component {
             if (this.props.match.params.id) {
                 return (
                     <form id="dragon" onSubmit={this.update}>
-                        <input type="text" name="name" placeholder="Name" onChange={this.handleChange} value={this.state.name} />
-                        <input type="text" name="type" placeholder="Type" onChange={this.handleChange} value={this.state.type} />
+                        <input type="text" name="name" placeholder="Name" onChange={this.handleChange} value={this.state.name} onKeyUp={this.handleKeyUp} />
+                        <input type="text" name="type" placeholder="Type" onChange={this.handleChange} value={this.state.type} onKeyUp={this.handleKeyUp} />
                         <input type="text" name="createdAt" placeholder="Created at" readOnly value={this.formatDate()} />
-                        <button type="submit">Update</button>
+                        { !this.hasFormErrors() ? <button className="button-submit" type="submit">Update</button> : <button className="button-error" type="button">Name and Type are required</button> }
                     </form>
                 )
             } else {
                 return (
                     <form id="dragon" onSubmit={this.create}>
-                        <input type="text" name="name" placeholder="Name" onChange={this.handleChange} />
-                        <input type="text" name="type" placeholder="Type" onChange={this.handleChange} />
-                        <button type="submit">Create</button>
+                        <input type="text" name="name" placeholder="Name" onChange={this.handleChange} onKeyUp={this.handleKeyUp} />
+                        <input type="text" name="type" placeholder="Type" onChange={this.handleChange} onKeyUp={this.handleKeyUp} />
+                        { !this.hasFormErrors() ? <button className="button-submit" type="submit">Create</button> : <button className="button-error" type="button">Name and Type are required</button> }
                     </form>
                 )
             }
-
-
             
         }
     }
