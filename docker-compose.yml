@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+
+  dragons:
+    container_name: dragons
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
