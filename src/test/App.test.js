@@ -10,8 +10,8 @@ Enzyme.configure({ adapter: new Adapter() })
 describe('App', () => {
 
     it('should render', () => {
-      const wrapper = shallow(<App />)
-      expect(wrapper.exists()).toBe(true)
+        const wrapper = shallow(<App />)
+        expect(wrapper.exists()).toBe(true)
     })
 
 })

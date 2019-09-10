@@ -30,7 +30,8 @@
       "camelcase": "warn",
       "no-console": "warn",
       "no-unused-vars": "error",
-      "comma-style": "error"
+      "comma-style": "error",
+      "indent": ["error", 4]
     }
   },
   "browserslist": {

@@ -18,8 +18,8 @@ describe('Page/Login', () => {
     }
 
     it('should render', () => {
-      const wrapper = shallow(<Login store={store} />)
-      expect(wrapper.exists()).toBe(true)
+        const wrapper = shallow(<Login store={store} />)
+        expect(wrapper.exists()).toBe(true)
     })
 
     it('should not render header', () => {

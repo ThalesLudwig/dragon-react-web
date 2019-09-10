@@ -11,8 +11,8 @@ Enzyme.configure({ adapter: new Adapter() })
 describe('Component/Header', () => {
 
     it('should render', () => {
-      const wrapper = shallow(<Header store={store} />)
-      expect(wrapper.exists()).toBe(true)
+        const wrapper = shallow(<Header store={store} />)
+        expect(wrapper.exists()).toBe(true)
     })
 
 })

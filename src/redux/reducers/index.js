@@ -7,13 +7,13 @@ const initialState = {
 function rootReducer(state = initialState, action) {
     
     switch(action.type){
-        case LOG_USER:
-            return {
-                ...state,
-                isLogged: action.payload,
-            }
-        default:
-            return state
+    case LOG_USER:
+        return {
+            ...state,
+            isLogged: action.payload,
+        }
+    default:
+        return state
     }
     
 };
