@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import api from '../services/api'
 import Loader from '../components/Loader'
-import Moment from 'moment';
+import Moment from 'moment'
 import './Dragon.css'
 
 export default class Dragon extends Component {

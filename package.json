@@ -19,10 +19,19 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "./node_modules/react-scripts/node_modules/.bin/eslint ."
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "quotes": ["warn", "single"],
+      "semi": ["warn", "never"],
+      "camelcase": "warn",
+      "no-console": "warn",
+      "no-unused-vars": "error",
+      "comma-style": "error"
+    }
   },
   "browserslist": {
     "production": [

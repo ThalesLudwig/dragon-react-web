@@ -29,7 +29,7 @@ describe('Page/Login', () => {
 
     it('has two inputs', () => {
         const wrapper = mount(<Login store={store} />)
-        expect(wrapper.find("input")).toHaveLength(2)
+        expect(wrapper.find('input')).toHaveLength(2)
     })
 
     it('starts with empty user data', () => {
@@ -40,7 +40,7 @@ describe('Page/Login', () => {
     it('authenticates empty user', () => {
         const wrapper = shallow(<Login store={store} />).dive().dive()
         wrapper.instance().setState({...user})
-        expect(wrapper.find("button").hasClass("button-error")).toBe(true)
+        expect(wrapper.find('button').hasClass('button-error')).toBe(true)
     })
 
 })

@@ -2,7 +2,7 @@ import { LOG_USER } from '../constants/action-types'
 
 const initialState = {
     isLogged: false
-};
+}
 
 function rootReducer(state = initialState, action) {
     
@@ -11,11 +11,11 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 isLogged: action.payload,
-            };
+            }
         default:
-            return state;
+            return state
     }
     
 };
 
-export default rootReducer;
+export default rootReducer
