@@ -21,7 +21,7 @@ form#login input {
     font-size: 14px;
 }
 
-form#login button {
+.button-submit {
     padding: 10px 20px;
     border-radius: 4px;
     border: 0;
@@ -32,3 +32,13 @@ form#login button {
     cursor: pointer;
 }
 
+.button-error {
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: 0;
+    background: rgb(80, 79, 79);
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
