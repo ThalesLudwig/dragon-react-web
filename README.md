@@ -53,4 +53,4 @@ Lint rules are:
 - No console outputs allowed
 - No unused vars allowed
 - Commas after instruction
-- Identation requires 4 spaces
+- Identation requires 4 spaces 
